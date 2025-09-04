@@ -1,0 +1,47 @@
+Classifique os atributos:
+
+[Entidade Aluno]
+Simples: Nome, Idade
+Composto: endereço (Rua, bairro, CEP, etc.)
+Monovalorado: CPF, Matricula (PK)
+Multivalorado: Telefone (1,n) - Um aluno pode ter no mínimo 1 ou mais
+telefones.
+
+    -> relacionamento <cursa> (0,n) com a entidade Disciplina = Um aluno
+    PODE cursar 0 ou muitas disciplinas.
+
+[Entidade Disciplina]
+Simples: Nome
+Monovalorado: Código(PK)
+
+    -> relacionamento <cursa> (1,n) com a entidade Aluno = Uma disciplina
+    pode ser cursada por no mínimo 1 aluno ou mais.
+
+[entidade funcionário]
+Simples: nome, função, idade, cidade.
+monovalorado: código(PK)
+
+    -> relacionamento <possui>  (1,1) com a entidade locadora = Um funcionário só pode possuir 1 locadora.
+
+    -> relacionamento <trabalha> (1,1) com a entidade filial = um funcionário só pode trabalhar em 1 filial.
+
+[entidade locadora]
+simples: razão social
+composta: endereço
+monovalorado: CNPJ (PK)
+
+    -> relacionamento <possui> (1,n) com a entidade funcionário = uma locadora pode ser 
+    possuída por no mínimo 1 ou mais funcionário.
+
+    -> relacionamento <possui> (1,n) com a entidade filial = uma locadora pode possuir no
+    mínimo 1 ou mais filiais.
+
+[entidade filial]
+simples: nome
+monovalorado: Código(PK)
+multivalorado: telefone (1,n) - uma filial pode ter 1 ou muitos telefones.
+
+    -> relacionamento <possui> (1,1) com a entidade locadora = uma filial só pode ser possuída por 1 locadora.
+
+    -> relacionamento <trabalha> (1,n) com a entidade funcionário = uma filial recebe para trabalhar no mínimo 1 ou mais 
+    funcionários.
