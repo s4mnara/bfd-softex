@@ -1,49 +1,67 @@
-class Animal{
-    public quantidadeDePatas : Number;
-    public Voa : Boolean;
-    public habitat : String;
-    public temVeneno : Boolean;
-    public Alimentacao : String; // carnivoro, herbivoro, onivoro
-    public vertebrado : Boolean;
+class Animal {
+    public nome: string;             // Nome ou espécie do animal
+    public quantidadeDePatas: number;
+    public voa: boolean;
+    public habitat: string;
+    public temVeneno: boolean;
+    public alimentacao: string;      // carnivoro, herbivoro, onivoro
+    public vertebrado: boolean;
+    public som: string;              
 
-    constructor(quantidadeDePatas,Voa,habitat,temVeneno,Alimentacao,vertebrado){
+    constructor(nome: string, quantidadeDePatas: number, voa: boolean, habitat: string, temVeneno: boolean, alimentacao: string, vertebrado: boolean, som: string) {
+        this.nome = nome;
         this.quantidadeDePatas = quantidadeDePatas;
-        this.Voa=Voa;
-        this.habitat=habitat;
-        this.temVeneno=temVeneno;
-        this.Alimentacao=Alimentacao;
-        this.vertebrado=vertebrado;
-    }
-    emitirSom(){
-        console.log("Animal emitindo som...")
-    }
-    comer(){
-        console.log("Animal comendo...")
-    }
-    locomover(){
-        console.log("Animal se locomovendo...")
-    }
-    dormir(){
-        console.log("Animal dormindo...")
-    }
-    reproduzir() {
-        console.log("Animal se reproduzindo...");
-    }
-    respirar() {
-        console.log("Animal respirando...");
+        this.voa = voa;
+        this.habitat = habitat;
+        this.temVeneno = temVeneno;
+        this.alimentacao = alimentacao;
+        this.vertebrado = vertebrado;
+        this.som = som;
     }
 
-    
+    emitirSom() {
+        console.log(`${this.nome} faz: ${this.som}`);
+    }
+
+       comer() {
+        console.log(`${this.nome} está comendo ${this.alimentacao}...`);
+    }
+
+    locomover() {
+        if (this.voa) {
+            console.log(`${this.nome} está voando pelo ${this.habitat}...`);
+        } else {
+            console.log(`${this.nome} está andando pelo ${this.habitat}...`);
+        }
+    }
+
+    dormir() {
+        console.log(`${this.nome} se acomodou e está dormindo... Zzz`);
+    }
+
+    reproduzir() {
+        console.log(`${this.nome} está cuidando da reprodução...`);
+    }
+
+    respirar() {
+        console.log(`${this.nome} está respirando normalmente...`);
+    }
+
 }
 
-const gato = new Animal(4,false,"casa",false,"carnivoro",true);
-console.log(`Meu gato possui ${gato.quantidadeDePatas} patas`)
-const cachorro = new Animal (4,false,"casa",false,"carnivoro",true);
-console.log(`meu cachorro vive em ${cachorro.habitat}`)
-const morcego = new Animal (2,true,"caverna",true,"carnivoro",true);
-console.log(`morcego tem veneno? ${morcego.temVeneno}`)
-console.log(cachorro.comer);
-console.log(gato.emitirSom);
+// Criando instâncias 
+const gato = new Animal("Gato", 4, false, "casa", false, "carnivoro", true, "miau");
+const cachorro = new Animal("Cachorro", 4, false, "casa", false, "carnivoro", true, "au au");
+const morcego = new Animal("Morcego", 2, true, "caverna", true, "carnivoro", true, "ultrassom");
+
+// Chamando métodos
+gato.emitirSom();       
+cachorro.emitirSom();  
+morcego.emitirSom();    
+
+gato.comer();           
+cachorro.locomover();   
+morcego.respirar();     
 
 
 

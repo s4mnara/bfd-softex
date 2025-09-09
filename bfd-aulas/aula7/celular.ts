@@ -1,44 +1,56 @@
-class Celular{
-    public modelo : String;
-    public marca : String;
-    public statusBateria: Number; //%
-    public SO : String;
-    public armazenamento : Number;
-    public cor : String;
+class Celular {
+    public modelo: string;
+    public marca: string;
+    public statusBateria: number; // %
+    public SO: string;
+    public armazenamento: number;
+    public cor: string;
 
-    constructor(modelo,marca,statusBateria,SO,armazenamento,cor){
-        this.modelo=modelo;
-        this.marca=marca;
-        this.statusBateria=statusBateria;
-        this.SO=SO;
-        this.armazenamento=armazenamento;
-        this.cor=cor;
+    constructor(modelo: string, marca: string, statusBateria: number, SO: string, armazenamento: number, cor: string) {
+        this.modelo = modelo;
+        this.marca = marca;
+        this.statusBateria = statusBateria;
+        this.SO = SO;
+        this.armazenamento = armazenamento;
+        this.cor = cor;
     }
-   tirarFoto(){
-    console.log("foto tirada com sucesso")
-   }
-   fazerLigacao(){
-    console.log("chamando... aguardando na linha")
-   }
-   reproduzirMusica(){
-    console.log("Annie are you ok? rusbé")
-   }
-   abrirNavegador(){
-   console.log("Navegador aberto")
-   }
-   conectarInternet(){
-    console.log("Rede conectada")
-   }
-   ligarBluetooth(){
-    console.log("sebrutius")
-   }
 
+    tirarFoto() {
+        console.log(`${this.modelo} tirou uma foto com sucesso!`);
+    }
+
+    fazerLigacao() {
+        console.log(`${this.modelo} está chamando... aguardando na linha`);
+    }
+
+    reproduzirMusica() {
+        console.log(`${this.modelo} está reproduzindo música: Annie are you ok? rusbé`);
+    }
+
+    abrirNavegador() {
+        console.log(`${this.modelo} abriu o navegador`);
+    }
+
+    conectarInternet() {
+        console.log(`${this.modelo} conectou à internet`);
+    }
+
+    ligarBluetooth() {
+        console.log(`${this.modelo} ativou o Bluetooth: sebrutius`);
+    }
 }
 
-const iphone = new Celular("XR","Apple",100,"IOS",64,"azul");
-const motorola = new Celular("5","moto",66,"seinao",128,"preto")
-const nokia = new Celular ("12","nokia",21,"tijolao",32,"branco")
-console.log(`meu iphone tem a cor ${iphone.cor}`)
-console.log(`meu nokia é possui o sistema operacional ${nokia.SO} `)
-console.log(`meu motorola está com bateria em ${motorola.statusBateria}`)
-console.log(nokia.conectarInternet)
+// Criando instâncias
+const iphone = new Celular("iphone XR", "Apple", 100, "iOS", 64, "azul");
+const motorola = new Celular("Moto 5", "Moto", 66, "Seinao", 128, "preto");
+const nokia = new Celular("nokia 1200", "Nokia", 21, "Tijolão", 32, "branco");
+
+// Usando atributos
+console.log(`Meu iPhone tem a cor ${iphone.cor}`);
+console.log(`Meu Nokia possui o sistema operacional ${nokia.SO}`);
+console.log(`Meu Motorola está com bateria em ${motorola.statusBateria}%`);
+
+// Chamando métodos
+iphone.conectarInternet(); 
+nokia.tirarFoto();
+motorola.reproduzirMusica();

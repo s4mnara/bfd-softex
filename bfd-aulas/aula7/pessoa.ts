@@ -1,49 +1,56 @@
-class Pessoa{
-    public nome : String;
-    public idade : Number;
-    public corDaPele : String;
-    public sexo : String;
-    public altura : Number;
-    public peso : Number;
+class Pessoa {
+    public nome: string;
+    public idade: number;
+    public corDaPele: string;
+    public sexo: string;
+    public altura: number;
+    public peso: number;
 
-    constructor(nome,idade,corDaPele,sexo,altura,peso){
-        this.nome=nome;
-        this.idade=idade;
-        this.corDaPele=corDaPele;
-        this.sexo=sexo;
-        this.altura=altura;
-        this.peso=peso;
+    constructor(nome: string, idade: number, corDaPele: string, sexo: string, altura: number, peso: number) {
+        this.nome = nome;
+        this.idade = idade;
+        this.corDaPele = corDaPele;
+        this.sexo = sexo;
+        this.altura = altura;
+        this.peso = peso;
     }
-    nascer(nome){
-        console.log(`nasceu ${nome}`)
+
+    nascer(): string {
+        return `Nasceu ${this.nome}`;
     }
-    crescer(idade,nome){
-        console.log(`parabéns ${nome}!, você agora tem ${idade+1} anos!`)
+
+    crescer(): string {
+        this.idade += 1;
+        return `Parabéns ${this.nome}! Você agora tem ${this.idade} anos!`;
     }
-    reproduzir(nome,idade){
-        if (idade>=18){
-            console.log(`${nome}, acabou de ter um filho`)
+
+    reproduzir(): string {
+        if (this.idade >= 18) {
+            return `${this.nome} acabou de ter um filho aos ${this.idade} anos!`;
+        } else {
+            return `${this.nome} ainda não tem idade para reproduzir, espere até os 18 anos!`;
         }
-        else{
-            console.log(`${nome} ainda não tem idade para reproduzir`)
-        }
-    }
-    morrer(idade,nome){
-        console.log(`morre aos ${idade} anos, ${nome}...Descanse em paz.`)
-
-    }
-    trabalhar(nome){
-        console.log(`${nome} foi trabalhar`)
-    }
-    estudar(nome){
-        console.log(`${nome} foi estudar`)
     }
 
+    morrer(): string {
+        return `${this.nome} morreu aos ${this.idade} anos... Descanse em paz.`;
+    }
+
+    trabalhar(): string {
+        return `${this.nome} foi trabalhar.`;
+    }
+
+    estudar(): string {
+        return `${this.nome} foi estudar.`;
+    }
 }
-const maria = new Pessoa("maria",18,"parda","feminino",160,60)
-console.log(`maria tem ${maria.idade}`)
-console.log(maria.morrer)
-const jose = new Pessoa("jose",30,"branco","masculino",180,80)
-const ivo = new Pessoa("ivo",22,"negro","masculino",170,70)
-console.log(ivo.trabalhar)
-console.log(jose.estudar)
+
+// Criando instâncias
+const maria = new Pessoa("Maria", 18, "parda", "feminino", 160, 60);
+console.log(`Maria tem ${maria.idade} anos`);
+console.log(maria.morrer()); 
+const jose = new Pessoa("Jose", 30, "branco", "masculino", 180, 80);
+const ivo = new Pessoa("Ivo", 22, "negro", "masculino", 170, 70);
+
+console.log(ivo.trabalhar()); 
+console.log(jose.estudar());  
