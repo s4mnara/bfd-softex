@@ -62,6 +62,8 @@ morcego.emitirSom();
 gato.comer();           
 cachorro.locomover();   
 morcego.respirar();     
+console.log(`morcego voa? ${morcego.voa}`)
+console.log(`cachorro tem veneno? ${cachorro.temVeneno}`)
 
 
 

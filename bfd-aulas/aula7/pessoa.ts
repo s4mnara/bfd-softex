@@ -4,15 +4,15 @@ class Pessoa {
     public corDaPele: string;
     public sexo: string;
     public altura: number;
-    public peso: number;
+    public profissao : string;
 
-    constructor(nome: string, idade: number, corDaPele: string, sexo: string, altura: number, peso: number) {
+    constructor(nome: string, idade: number, corDaPele: string, sexo: string, altura: number, profissao : string) {
         this.nome = nome;
         this.idade = idade;
         this.corDaPele = corDaPele;
         this.sexo = sexo;
         this.altura = altura;
-        this.peso = peso;
+        this.profissao = profissao;
     }
 
     nascer(): string {
@@ -35,9 +35,14 @@ class Pessoa {
     morrer(): string {
         return `${this.nome} morreu aos ${this.idade} anos... Descanse em paz.`;
     }
-
+    
     trabalhar(): string {
-        return `${this.nome} foi trabalhar.`;
+        if (this.idade>=18){
+        return `${this.nome} foi trabalhar, ele é ${this.profissao}.`;
+        }
+        else{
+            return `${this.nome} não pode trabalhar, ainda é de menor idade`
+        }
     }
 
     estudar(): string {
@@ -46,11 +51,13 @@ class Pessoa {
 }
 
 // Criando instâncias
-const maria = new Pessoa("Maria", 18, "parda", "feminino", 160, 60);
+const maria = new Pessoa("Maria", 18, "parda", "feminino", 160,"médica");
 console.log(`Maria tem ${maria.idade} anos`);
 console.log(maria.morrer()); 
-const jose = new Pessoa("Jose", 30, "branco", "masculino", 180, 80);
-const ivo = new Pessoa("Ivo", 22, "negro", "masculino", 170, 70);
+const jose = new Pessoa("Jose", 30, "branco", "masculino", 180, "programador");
+const ivo = new Pessoa("Ivo", 22, "negro", "masculino", 170, "professor");
 
 console.log(ivo.trabalhar()); 
-console.log(jose.estudar());  
+console.log(jose.estudar());
+console.log(`jose possui ${jose.idade} anos`);  
+console.log(jose.crescer());
